@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/*edu.escuelaing.arem.sparkwebapp.SparkWebApp
+web: java $JAVA_OPTS -cp target/classes:target/dependency/*edu.escuelaing.arem.webSpark
