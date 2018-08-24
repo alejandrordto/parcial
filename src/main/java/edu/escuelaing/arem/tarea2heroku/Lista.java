@@ -62,7 +62,12 @@ public class Lista {
             System.err.println("No se encontro el archivo ");
         }
     }
-
+    public void read(String string){
+        String[] part=string.split(",");
+        for(String i:part){
+            this.add(Double.parseDouble(i));
+        }
+    }
     @Override
     public String toString() {
          Nodo temp=head;

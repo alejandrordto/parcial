@@ -52,8 +52,6 @@ public class Calculadora {
       */
      public void leer(String file){
          lista.leer(file);
-         System.out.println("Media: " +getMedia());
-         System.out.println("Desviacion estandar: 0"+getDesviacion());
      }
 
     public Lista getLista() {

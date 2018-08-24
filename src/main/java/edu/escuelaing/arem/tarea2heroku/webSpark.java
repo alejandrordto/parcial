@@ -14,6 +14,7 @@ public class webSpark {
     public static void main(String[] args) {
         
         app=new Calculadora();
+        app.leer("test.txt");
         get("/Appesti", (req, res) ->   ("<!DOCTYPE html>"+
                                         "<html>"+
                                         "<head>"+
@@ -24,10 +25,10 @@ public class webSpark {
                                         "<p>Ingrese la lista deseada, separe cada numero con una coma </p>"+
                                         "<div>"+
                                         "<label for='tnum'>Lista de numeros</label>"+
-                                        "<input type='text' id='list' name='lista'>"+
-                                        "<label for='lname'>Descubra los estadigrafos</label>"+
-                                        "<input type='text' id='esta' name='respuesta'>"+
-                                        "<button id='Butom' class='button'>Calcular</button>"+
+                                        "<input type='text' id='list' name='lista' >"+
+                                        "<button id='Butom' class='button' >Calcular</button>"+
+                                        "<p>Media: </p>"+ app.getMedia()+
+                                        "<p>Descviacion: </p>"+ app.getDesviacion()+
                                         "</div>"+
                                         "</body>"+
                                         "</html>"));
