@@ -51,7 +51,7 @@ public class Calculadora {
       * @param file direccion del archivo .txt que se leera
       */
      public void leer(String file){
-         lista.leer(file);
+         lista.read(file);
      }
 
     public Lista getLista() {

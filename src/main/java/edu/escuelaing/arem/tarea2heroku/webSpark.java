@@ -4,43 +4,57 @@
  * and open the template in the editor.
  */
 package edu.escuelaing.arem.tarea2heroku;
+
+import spark.*;
 import static spark.Spark.*;
+
 /**
  *
- * @author Alejandro Rodriguez  
+ * @author Alejandro Rodriguez
  */
 public class webSpark {
+
     private static Calculadora app;
+
     public static void main(String[] args) {
-        
-        app=new Calculadora();
-        app.leer("test.txt");
-        get("/Appesti", (req, res) ->   ("<!DOCTYPE html>"+
-                                        "<html>"+
-                                        "<head>"+
-                                        "<title>Calculador de estadisticos</title>"+
-                                        "<meta charset='UTF-8'>"+
-                                        "</head>"+
-                                        "<body>"+
-                                        "<p>Ingrese la lista deseada, separe cada numero con una coma </p>"+
-                                        "<div>"+
-                                        "<label for='tnum'>Lista de numeros</label>"+
-                                        "<input type='text' id='list' name='lista' >"+
-                                        "<button id='Butom' class='button' >Calcular</button>"+
-                                        "<p>Media: </p>"+ app.getMedia()+
-                                        "<p>Descviacion: </p>"+ app.getDesviacion()+
-                                        "</div>"+
-                                        "</body>"+
-                                        "</html>"));
- }
+
+        app = new Calculadora();
+        get("/Appesti", (req, res) -> index(req,res));
+        get("/Calculo",(req,res) -> calculo(req,res));
+    }
+
     static int getPort() {
-    if (System.getenv("PORT") != null) {
-        return Integer.parseInt(System.getenv("PORT"));
+        if (System.getenv("PORT") != null) {
+            return Integer.parseInt(System.getenv("PORT"));
+        }
+        return 4567;
     }
-	return  4567; 
+
+    static String index(Request req, Response res) {
+        String web;
+        web =  "<!DOCTYPE html>"
+                + "<html>"
+                + "<body>"
+                + "<h2>HTML Forms</h2>"
+                + "<form action='/Consulta'+>"
+                + "  Ingrese los numeros separados por una coma:<br>"
+                + "  <input type=\"text\" name='lista'>"
+                + "  <br>"
+                + "  <br><br>"
+                + "  <input type=\"submit\" value=\"Submit\">"
+                + "</form>"
+                + "<p>If you click the \"Submit\" button, the form-data will be sent to a page called \"/Calculo\".</p>"
+                + "</body>"
+                + "</html>";
+        return web;
     }
-    static String calculo(String value){
+
+    static String calculo(Request req, Response res) {
+        System.out.println("------");
+        float a;
+        float b;
+        app.leer(req.queryParams("lista"));
         
-        return "Media:" +"\n"+"Desviacion estandar:";
+        return "Media:" + app.getMedia()+ "\n" + "Desviacion estandar:" + app.getDesviacion();
     }
 }
