@@ -36,7 +36,7 @@ public class webSpark {
                 + "<html>"
                 + "<body>"
                 + "<h2>HTML Forms</h2>"
-                + "<form action='/Consulta'+>"
+                + "<form action='/Calculo'+>"
                 + "  Ingrese los numeros separados por una coma:<br>"
                 + "  <input type=\"text\" name='lista'>"
                 + "  <br>"
@@ -50,11 +50,17 @@ public class webSpark {
     }
 
     static String calculo(Request req, Response res) {
-        System.out.println("------");
         float a;
         float b;
         app.leer(req.queryParams("lista"));
-        
-        return "Media:" + app.getMedia()+ "\n" + "Desviacion estandar:" + app.getDesviacion();
+        String charlie;
+        charlie="<!DOCTYPE html>"
+                + "<html>"
+                + "<body>"
+                +"<br:>"+"Media estadistica:"+app.getMedia()+"<br:>"
+                +"<p>"+"Desviacion estandar:"+app.getDesviacion()+"<p>"
+                + "</body>"
+                + "</html>";
+        return charlie;
     }
 }
