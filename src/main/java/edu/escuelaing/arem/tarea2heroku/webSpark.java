@@ -17,7 +17,7 @@ public class webSpark {
     private static Calculadora app;
 
     public static void main(String[] args) {
-
+        port(getPort());
         app = new Calculadora();
         get("/Appesti", (req, res) -> index(req,res));
         get("/Calculo",(req,res) -> calculo(req,res));
