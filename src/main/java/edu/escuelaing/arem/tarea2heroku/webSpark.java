@@ -15,9 +15,10 @@ import static spark.Spark.*;
 public class webSpark {
 
     private static Calculadora app;
-
-    public static void main(String[] args) {
-        port(getPort());
+  
+   public static void main(String[] args) {
+       port(getPort());
+       redirect.get("/", "/Appesti");
         app = new Calculadora();
         get("/Appesti", (req, res) -> index(req,res));
         get("/Calculo",(req,res) -> calculo(req,res));
@@ -43,7 +44,6 @@ public class webSpark {
                 + "  <br><br>"
                 + "  <input type=\"submit\" value=\"Submit\">"
                 + "</form>"
-                + "<p>If you click the \"Submit\" button, the form-data will be sent to a page called \"/Calculo\".</p>"
                 + "</body>"
                 + "</html>";
         return web;

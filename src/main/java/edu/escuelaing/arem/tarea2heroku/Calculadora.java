@@ -57,19 +57,19 @@ public class Calculadora {
             temp+=x.getValor();
             x=x.getSiguiente();
          }
-          x=x.getSiguiente();
+          temp+=x.getValor();
         ;
          return temp;
      }
      
       public double multiplicacion(){
          Nodo x=lista.getHead();
-         double temp=0;
+         double temp=1;
          while (x.getSiguiente()!=null){
             temp*=x.getValor();
             x=x.getSiguiente();
          }
-         x=x.getSiguiente();
+         temp*=x.getValor();
         ;
          return temp;
      }
