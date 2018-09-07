@@ -36,7 +36,7 @@ public class webSpark {
         web =  "<!DOCTYPE html>"
                 + "<html>"
                 + "<body>"
-                + "<h2>HTML Forms</h2>"
+                + "<h2>aplicacion parcial</h2>"
                 + "<form action='/Calculo'+>"
                 + "  Ingrese los numeros separados por una coma:<br>"
                 + "  <input type=\"text\" name='lista'>"
