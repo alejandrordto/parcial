@@ -57,10 +57,13 @@ public class webSpark {
         charlie="<!DOCTYPE html>"
                 + "<html>"
                 + "<body>"
-                +"<br:>"+"Media estadistica:"+app.getMedia()+"<br:>"
-                +"<p>"+"Desviacion estandar:"+app.getDesviacion()+"<p>"
+                +"<br:>"+"EL numero mayor es:"+app.max()+"<br:>"
+                +"<p>"+"El minimo es:"+app.min()+"<p>"
+                 +"<p>"+"La sumatoria de los numeros es:"+app.suma()+"<p>"
+                 +"<p>"+"La multiplicatoria de los numeros es:"+app.multiplicacion()+"<p>"
                 + "</body>"
                 + "</html>";
+        app=new Calculadora();
         return charlie;
     }
 }

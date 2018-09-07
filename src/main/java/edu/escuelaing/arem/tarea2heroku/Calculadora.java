@@ -11,40 +11,67 @@ package edu.escuelaing.arem.tarea2heroku;
  */
 public class Calculadora {
      private Lista lista;
-     private double media;
      public Calculadora(){
-         lista= new Lista();
-         media=0;
+        lista= new Lista();
+        
      }
-     /**
-      * funcion para calcular la media de un conjunto de datos
-      * @return entrega la media de la lista dada 
-      */
-     public double getMedia(){
+   
+     public double max(){
          Nodo x=lista.getHead();
+         double temp=0;
+         boolean flag=false;
          while (x.getSiguiente()!=null){
-             media+=x.getValor();
+             if (!flag){
+                 temp=x.getValor();
+                 flag=true;
+             } else{
+                 if (temp<x.getValor())temp=x.getValor();
+             }
              x=x.getSiguiente();
          }
-         media+=x.getValor();
-         media=media/lista.getNumeroElementos();
-         return media;
+         if (temp<x.getValor())temp=x.getValor();
+        ;
+         return temp;
      }
-     /**
-      * funcion que calcula la desviacion estandar de la lista
-      * @return da la desviacion estandar de la lista 
-      */
-     public double getDesviacion(){
-         double desviacion=0;
-         int base=2;
+      public double min(){
          Nodo x=lista.getHead();
+         double temp=0;
+         boolean flag=false;
          while (x.getSiguiente()!=null){
-             desviacion+=(double) Math.pow(x.getValor()-media,base);
+             if (!flag){
+                 temp=x.getValor();
+                 flag=true;
+             } else{
+                 if (temp>x.getValor())temp=x.getValor();
+             }
              x=x.getSiguiente();
          }
-         desviacion+=(double) Math.pow(x.getValor()-media,base);
-         desviacion=Math.sqrt(desviacion/(lista.getNumeroElementos()-1));
-         return desviacion;
+         if (temp>x.getValor())temp=x.getValor();
+        ;
+         return temp;
+     }
+      public double suma(){
+         Nodo x=lista.getHead();
+         double temp=0;
+         while (x.getSiguiente()!=null){
+            temp+=x.getValor();
+            x=x.getSiguiente();
+         }
+          x=x.getSiguiente();
+        ;
+         return temp;
+     }
+     
+      public double multiplicacion(){
+         Nodo x=lista.getHead();
+         double temp=0;
+         while (x.getSiguiente()!=null){
+            temp*=x.getValor();
+            x=x.getSiguiente();
+         }
+         x=x.getSiguiente();
+        ;
+         return temp;
      }
      /**
       * funcion usada para leer el fichero dado y obtener la lista

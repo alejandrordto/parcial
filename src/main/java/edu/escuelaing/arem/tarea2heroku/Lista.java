@@ -64,6 +64,7 @@ public class Lista {
     }
     public void read(String string){
         String[] part=string.split(",");
+        
         for(String i:part){
             this.add(Double.parseDouble(i));
         }
